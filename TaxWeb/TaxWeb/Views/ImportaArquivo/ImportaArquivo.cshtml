@@ -1,0 +1,20 @@
+﻿@model TaxWeb.Models.ArquivoViewModel
+@{
+    ViewBag.Title = "ImportaArquivo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ImportaArquivo</h2>
+
+
+<div class="row">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            @Html.LabelFor(x => x.File)
+            @Html.TextBoxFor(x => x.File, new { type = "file" })
+            @Html.ValidationMessageFor(x => x.File)
+        </div>
+        <button type="submit">Upload Arquivo</button>
+    }
+</div>
